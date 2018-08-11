@@ -7,8 +7,88 @@
 				let table = ["rock", "paper", "scissors"]
 				return table[Math.round(Math.random() *2)]
 			}
-			console.log("Random result is")
-			console.log(computerPlay())
+
+			function oneRound(computerInput, userInput)
+			{
+				userInput = userInput.toLowerCase();
+				let scores = [
+					{
+						"input":[rock, rock],
+						"score":[0, 0]
+					},
+					{
+						"input":[paper, paper],
+						"score":[0, 0]
+					},
+					{
+						"input":[scissors, scissors],
+						"score":[0, 0]
+					},
+					{
+						"input":[rock, paper],
+						"score":[0, 1]
+					},
+					{
+						"input":[rock, scissors],
+						"score":[1, 0]
+					},
+					{
+						"input":[paper, scissors],
+						"score":[0, 1]
+					},
+				]
+				for (i of scores)
+				{
+					if (computerInput == i.input[0] && userInput == i.input[1])
+						return {
+								"computer" : i.score[0]
+								"user" : i.score[1]
+							}
+					if (computerInput == i.input[1] && userInput == i.input[0])
+						return {
+								"computer" : i.score[1]
+								"user" : i.score[0]
+							}
+				}
+				return "error"
+		}
+
+			function game()
+			{
+				userScore = 0;
+				computerScore = 0;
+				let rounds = 0;
+				let computerInput;
+				let userInput;
+				let rez;
+
+				for (rounds = 0; round < 3; round++)
+				{
+					computerInput = computerPlay()
+					userInput = prompt("Please enter an input, rock, paper or scissors")
+					rez = oneRound(computerInput, userInput)
+					computerScore += rez.computer;
+					userScore += rez.user
+					if (rez.computer == rez.user)
+						console.log("Nobody wins this round")
+					else if (rez.computer > rez.user)
+						console.log("You loose!" + computerInput + " beats " + 
+						userIput +"!")
+					else
+						console.log("You win!" + userInput + " beats " + 
+						computerInput + "!")
+				}
+				console.log("User Score [" + userScore + "] - [" + computerScore
+				+ "] Computer Score")
+				if (userScore == computerScore)
+					console.log("Nobody wins")
+				else if (userScore > computerScore)
+					console.log("You win!")
+				else
+					console.log("You loose!")
+			}
+			game();
+
 		</script>
 		</body>
 </html>
