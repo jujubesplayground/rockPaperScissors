@@ -50,7 +50,7 @@
 								"user" : i.score[0]
 							}
 				}
-				return "error: wrong input"
+				return 0
 		}
 
 			function game()
@@ -60,17 +60,17 @@
 				let rounds = 0;
 				let computerInput;
 				let userInput;
-				let rez;
+				let rez = 0
 
 				for (rounds = 0; rounds < 3; rounds++)
 				{
 					computerInput = computerPlay()
-					userInput = prompt("Please enter an input, rock, paper or scissors")
-					rez = oneRound(computerInput, userInput)
-					if (rez == "error: wrong input")
+					while (rez == 0)
 					{
-						console.log ("error: wrong input")
-						return;
+						userInput = prompt("Please enter an input, rock, paper or scissors")
+						rez = oneRound(computerInput, userInput)
+						if (rez == 0)
+							console.log ("error: wrong input")
 					}
 					computerScore += rez.computer;
 					userScore += rez.user
@@ -82,6 +82,7 @@
 					else
 						console.log("You win!" + userInput + " beats " + 
 						computerInput + "!")
+					rez = 0;
 				}
 				console.log("User Score [" + userScore + "] - [" + computerScore
 				+ "] Computer Score")
