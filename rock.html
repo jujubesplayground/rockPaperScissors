@@ -13,27 +13,27 @@
 				userInput = userInput.toLowerCase();
 				let scores = [
 					{
-						"input":[rock, rock],
+						"input":["rock", "rock"],
 						"score":[0, 0]
 					},
 					{
-						"input":[paper, paper],
+						"input":["paper", "paper"],
 						"score":[0, 0]
 					},
 					{
-						"input":[scissors, scissors],
+						"input":["scissors", "scissors"],
 						"score":[0, 0]
 					},
 					{
-						"input":[rock, paper],
+						"input":["rock", "paper"],
 						"score":[0, 1]
 					},
 					{
-						"input":[rock, scissors],
+						"input":["rock", "scissors"],
 						"score":[1, 0]
 					},
 					{
-						"input":[paper, scissors],
+						"input":["paper", "scissors"],
 						"score":[0, 1]
 					},
 				]
@@ -41,16 +41,16 @@
 				{
 					if (computerInput == i.input[0] && userInput == i.input[1])
 						return {
-								"computer" : i.score[0]
+								"computer" : i.score[0],
 								"user" : i.score[1]
 							}
 					if (computerInput == i.input[1] && userInput == i.input[0])
 						return {
-								"computer" : i.score[1]
+								"computer" : i.score[1],
 								"user" : i.score[0]
 							}
 				}
-				return "error"
+				return "error: wrong input"
 		}
 
 			function game()
@@ -62,18 +62,23 @@
 				let userInput;
 				let rez;
 
-				for (rounds = 0; round < 3; round++)
+				for (rounds = 0; rounds < 3; rounds++)
 				{
 					computerInput = computerPlay()
 					userInput = prompt("Please enter an input, rock, paper or scissors")
 					rez = oneRound(computerInput, userInput)
+					if (rez == "error: wrong input")
+					{
+						console.log ("error: wrong input")
+						return;
+					}
 					computerScore += rez.computer;
 					userScore += rez.user
 					if (rez.computer == rez.user)
 						console.log("Nobody wins this round")
 					else if (rez.computer > rez.user)
 						console.log("You loose!" + computerInput + " beats " + 
-						userIput +"!")
+						userInput +"!")
 					else
 						console.log("You win!" + userInput + " beats " + 
 						computerInput + "!")
