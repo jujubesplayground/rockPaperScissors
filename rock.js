@@ -5,7 +5,7 @@ let computerGlobalScore = 0;
 let userGlobalScore = 0;
 let turns = 0;
 let rounds = 0;
-const container = document.querySelector('body')
+const container = document.querySelector('#talk')
 
 
 function computerPlay() {
@@ -79,6 +79,7 @@ function whoWins(userScore, computerScore, phase)
         console.log("You loose this "+ phase +  "!");
         computerGlobalScore+=1;
     }
+    winner.style.color="white"
     container.appendChild(winner)
 }
 
