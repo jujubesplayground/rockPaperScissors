@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Rock Paper Scissors</title>
-		<link rel="stylesheet" type="text/css" href="./rockDOM.css">
-	</head>
-	<body>
+
+<head>
+	<title>Rock Paper Scissors</title>
+	<link rel="stylesheet" type="text/css" href="./rockDOM.css">
+</head>
+
+<body>
+	<div id="page">
 		<div id="title">GAME</div>
 		<div id="container">
 			<button id="rock">Rock</button>
 			<button id="paper">Paper</button>
 			<button id="scissors">Scissors</button>
 		</div>
-		<div id="score">
-			<div class= "score" id="computerScore"></div>
-			<div class= "score" id="userScore"></div>
+		<div id="scoreContainer">
+			<div class="score" id="computerScore">
+				<div>COMPUTER</div>
+				<div>Round Score</div>
+				<div>Rounds Won</div>
+			</div>
+			<div id="barre"></div>
+			<div class="score" id="userScore">
+				<div>Round Score</div>
+				<div>Rounds Won</div>
+				<div>USER</div>
+			</div>
 		</div>
-		<div id ="talk"></div>
+		<div id="talk"></div>
+	</div>
+	<script src="./rock.js"></script>
+</body>
 
-		<script src = "./rock.js"></script>
-	</body>
 </html>
