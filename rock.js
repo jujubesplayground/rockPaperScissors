@@ -59,6 +59,7 @@ function oneRound(computerInput, userInput) {
 function whoWins(userScore, computerScore, phase)
 {
     const winner = document.createElement('div')
+    
     winner.id = "winner"
     if (userScore == computerScore)
     {
